@@ -1,0 +1,24 @@
+name: spatial
+pitch: |
+  XR, visionOS, Metal, immersif. Squad dormante par défaut.
+  Activée si tu pivotes vers une expérience spatiale ou prototype XR.
+
+projets_phares:
+  - "{{Ton projet XR éventuel}}"
+
+agents:
+  - spatial-computing/xr-interface-architect.md
+  - spatial-computing/visionos-spatial-engineer.md
+  - spatial-computing/macos-spatial-metal-engineer.md
+  - spatial-computing/xr-immersive-developer.md
+  - spatial-computing/xr-cockpit-interaction-specialist.md
+  - spatial-computing/terminal-integration-specialist.md
+  - specialized/agents-orchestrator.md
+
+runbooks_compatibles:
+  - runbook-mvp
+  - runbook-feature
+
+exemples_usage:
+  - "POC visionOS : visionos-spatial-engineer + xr-interface-architect"
+  - "Prototype WebXR : xr-immersive-developer en solo"

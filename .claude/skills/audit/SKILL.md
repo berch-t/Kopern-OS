@@ -92,9 +92,11 @@ A "reachable" connection counts via ANY mechanism: MCP, script, export pipeline,
 
 | Criterion | Points | How to detect |
 |---|---|---|
-| 3+ skills installed | 10 | Count `.claude/skills/*/SKILL.md` |
-| 1+ user-built skill | 10 | Skill names not in: `onboard`, `audit`, `level-up`, `skill-creator`, `skill-builder`, `decision`, `connect`, `connect-check`, `memory-prune`, `scaffold-skill`, `scaffold-agent`, `draft`, `standup` (canonical Kopern-OS + Anthropic shipped skills) |
-| 1+ agent defined | 5 | Count `.claude/agents/*.md` ≥ 1 |
+| 3+ skills installed | 5 | Count `.claude/skills/*/SKILL.md` |
+| 1+ user-built skill | 5 | Skill names not in: `onboard`, `audit`, `level-up`, `squad`, `orchestrate`, `roster`, `skill-creator`, `skill-builder`, `decision`, `connect`, `connect-check`, `memory-prune`, `scaffold-skill`, `scaffold-agent`, `draft`, `standup` (canonical Kopern-OS + Anthropic shipped skills) |
+| Squads available | 5 | Count `squads/*.yml` ≥ 1. Full score at 8+ squads. |
+| 1+ Squad activated within 30d | 5 | `decisions/log.md` contains a "Squad activée" entry within last 30 days, OR `.claude/agents/` is non-empty. |
+| Roster coverage | 5 | Count `agents/**/*.md` ≥ 50 = 3 pts, ≥ 150 = 4 pts, ≥ 200 = 5 pts. |
 
 #### Cadence (25 pts)
 

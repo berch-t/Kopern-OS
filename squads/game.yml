@@ -1,0 +1,34 @@
+name: game
+pitch: |
+  Game dev sur tous les moteurs (Unity, Unreal, Godot, Roblox, Blender).
+  Squad dormante par défaut. Activée pour un side-project ou un prototype.
+
+projets_phares:
+  - "{{Ton side-project jeu éventuel}}"
+
+agents:
+  - game-development/game-designer.md
+  - game-development/level-designer.md
+  - game-development/technical-artist.md
+  - game-development/game-audio-engineer.md
+  - game-development/narrative-designer.md
+  - game-development/unity/unity-architect.md
+  - game-development/unity/unity-shader-graph-artist.md
+  - game-development/unity/unity-multiplayer-engineer.md
+  - game-development/unity/unity-editor-tool-developer.md
+  - game-development/unreal-engine/unreal-systems-engineer.md
+  - game-development/unreal-engine/unreal-technical-artist.md
+  - game-development/godot/godot-gameplay-scripter.md
+  - game-development/godot/godot-shader-developer.md
+  - game-development/blender/blender-addon-engineer.md
+  - game-development/roblox-studio/roblox-systems-scripter.md
+  - specialized/agents-orchestrator.md
+
+runbooks_compatibles:
+  - runbook-mvp
+  - runbook-feature
+
+exemples_usage:
+  - "Prototype jeu Unity : unity-architect + game-designer + level-designer"
+  - "Outil Blender custom : blender-addon-engineer en solo"
+  - "Asset pipeline jeu Unreal : unreal-technical-artist + game-audio-engineer"

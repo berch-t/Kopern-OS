@@ -1,0 +1,31 @@
+name: creator
+pitch: |
+  Production de contenu : posts sociaux, YouTube, articles, visuels.
+  Voix cohérente, ton qui te ressemble. Les règles d'écriture (langue,
+  accents, ponctuation, em dashes) viennent de `references/voice.md`.
+
+projets_phares:
+  - "{{Ta présence personnelle (LinkedIn, X, etc.)}}"
+  - "{{Ton projet éditorial}}"
+
+agents:
+  - marketing/marketing-content-creator.md
+  - marketing/marketing-linkedin-content-creator.md
+  - marketing/marketing-video-optimization-specialist.md
+  - marketing/marketing-podcast-strategist.md
+  - marketing/marketing-seo-specialist.md
+  - marketing/marketing-carousel-growth-engine.md
+  - marketing/marketing-book-co-author.md
+  - design/design-image-prompt-engineer.md
+  - design/design-visual-storyteller.md
+  - design/design-brand-guardian.md
+  - design/design-whimsy-injector.md
+  - specialized/agents-orchestrator.md
+
+runbooks_compatibles:
+  - runbook-contenu
+
+exemples_usage:
+  - "Post LinkedIn solo : linkedin-content-creator avec voix `references/voice.md`"
+  - "Série YouTube : `/orchestrate runbook-contenu` (planning → script → thumbnail → SEO)"
+  - "Lancement livre / ebook : book-co-author + content-creator + visual-storyteller"

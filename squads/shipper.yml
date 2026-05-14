@@ -1,0 +1,32 @@
+name: shipper
+pitch: |
+  GTM, acquisition, métriques, croissance. Tu as un produit qui marche —
+  cette squad le met devant des gens et mesure ce qui se passe.
+
+projets_phares:
+  - "{{Ton produit prêt à scaler}}"
+  - "{{Ton lancement à venir}}"
+
+agents:
+  - product/product-manager.md
+  - product/product-sprint-prioritizer.md
+  - product/product-trend-researcher.md
+  - marketing/marketing-growth-hacker.md
+  - marketing/marketing-seo-specialist.md
+  - marketing/marketing-ai-citation-strategist.md
+  - marketing/marketing-content-creator.md
+  - marketing/marketing-linkedin-content-creator.md
+  - support/support-analytics-reporter.md
+  - specialized/specialized-developer-advocate.md
+  - sales/sales-outbound-strategist.md
+  - paid-media/paid-media-ppc-strategist.md
+  - specialized/agents-orchestrator.md
+
+runbooks_compatibles:
+  - runbook-contenu
+  - runbook-feature
+
+exemples_usage:
+  - "Lancement public d'un produit : `/squad shipper` puis `/orchestrate runbook-contenu`"
+  - "Mesure d'adoption semaine 1 : `/squad shipper` + analytics-reporter en lead"
+  - "Campagne d'acquisition : ppc-strategist + content-creator + growth-hacker"

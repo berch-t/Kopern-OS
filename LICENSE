@@ -1,7 +1,9 @@
 MIT License
 
-Copyright (c) 2026 Nate Herk (original AIS-OS starter kit)
-Copyright (c) 2026 Thomas Berchet / Kopern AI (Kopern-OS adaptation and additions)
+Copyright (c) 2026 Nate Herk (original AIS-OS starter kit, upstream)
+Copyright (c) 2026 Thomas Berchet / Kopern AI (Kopern-OS — substantial
+rewrite and additions: 224-agent catalog, 8 Squads, Kopern Conductor
+doctrine, 5 runbooks, 5 additional skills, 10 opinionated principles)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -15,9 +17,10 @@ copies or substantial portions of the Software.
 
 The framework content in references/operator-lens.md is published under the
 same MIT terms. The Kopern-OS naming, the "3M Operator Lens" and "4C AIOS
-Architecture" labels, and the Kopern AI brand are creations of Thomas Berchet /
-Kopern AI; reuse the code under MIT, but please do not repackage the Kopern
-brand or labels as your own product.
+Architecture" labels, the Kopern Conductor doctrine, the Squads pattern, and
+the Kopern AI brand are creations of Thomas Berchet / Kopern AI; reuse the
+code under MIT, but please do not repackage the Kopern brand or labels as
+your own product.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,

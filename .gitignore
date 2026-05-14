@@ -6,3 +6,12 @@ __pycache__/
 node_modules/
 .claude/settings.local.json
 audits/
+
+# .claude/agents/ contains runtime symlinks managed by /squad. Don't commit them.
+.claude/agents/*
+!.claude/agents/.gitkeep
+
+# archives/snapshots/ contains personal session snapshots created by /snapshot.
+archives/snapshots/*
+!archives/snapshots/.gitkeep
+

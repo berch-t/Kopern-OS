@@ -11,6 +11,11 @@ Read `references/operator-lens.md` once. It's how {{Your Name}} thinks about AI 
 - `/onboard` — already run if you're seeing this filled in. Re-run any time to refresh from an edited `aios-intake.md`.
 - `/audit` — 4C gap report. Run on Day 7, then weekly. Watch your score climb.
 - `/level-up` — Weekly 3Ms interview. Find one automation, scope it, ship it. One per week.
+- `/squad <nom>` — activate a Squad (bundle of 5-15 specialized agents from the catalog). 8 squads available: builder, shipper, researcher, operator, creator, spatial, voice, game.
+- `/orchestrate <runbook>` — launch a Kopern Conductor workflow (runbook-mvp, runbook-contenu, runbook-incident, runbook-feature).
+- `/roster <besoin>` — search the 224-agent catalog and add an ad-hoc agent to the active scope.
+- `/cost` — track LLM consumption per project, squad, session. Use `/cost`, `/cost month`, `/cost project <nom>`, `/cost squad <nom>`.
+- `/snapshot` — save / restore a Kopern-OS session state (active squad, ad-hoc agents, recent decisions). Use `/snapshot save "note"`, `/snapshot list`, `/snapshot restore <id>`.
 
 ## Where things live
 
@@ -19,6 +24,28 @@ Read `references/operator-lens.md` once. It's how {{Your Name}} thinks about AI 
 - `connections.md` — registry of every system your AIOS can reach
 - `decisions/log.md` — append-only record of decisions and why
 - `archives/` — old stuff. Don't delete. Move here.
+- `agents/` — the 222-agent catalog (engineering, design, marketing, paid-media, sales, product, project-management, testing, support, spatial-computing, specialized, finance, game-development, academic) — source files
+- `agents/orchestration/` — Kopern Conductor doctrine, playbooks (7 phases), runbooks (4 FR solo-builder), coordination handoffs
+- `squads/` — 8 YAML files defining which agents are bundled together for each scope of work
+- `.claude/agents/` — agents currently ACTIVE (symlinks managed by `/squad` and `/roster`)
+
+## Routage modèles (cost-aware)
+
+Pour limiter la facture Anthropic, route chaque type de tâche vers le modèle le plus économe qui fait le job. Demande-toi à chaque tâche : **est-ce que ça vaut Opus, ou est-ce que Sonnet/Haiku suffit ?**
+
+| Tâche | Modèle suggéré | Pourquoi |
+|---|---|---|
+| Architecture, design système, décisions stratégiques | **Opus 4.7** | Raisonnement long, trade-offs complexes |
+| Code review, debug investigation, root cause | **Opus 4.7** | Précision critique |
+| Coding standard (CRUD, glue code, refacto simple) | **Sonnet 4.6** | 5x moins cher, qualité suffisante |
+| Génération de tests, doc routine, commit messages | **Sonnet 4.6** | Tâche bornée |
+| Résumé long → court, extraction, classification, parsing | **Haiku 4.5** | 15x moins cher qu'Opus |
+| Réponse rapide, lookup, validation oui/non | **Haiku 4.5** | Latence + coût |
+| Génération images/vidéo prompts | **Haiku 4.5** | Prompt court, pas de raisonnement |
+
+**Règle pratique** : démarre une session sur le plus cheap qui peut faire le job. Escalade si la réponse déçoit. Ne descend pas en cours de session — le contexte est déjà chargé.
+
+`/cost month` te dit où va vraiment ta facture. `/level-up` peut identifier les corvées récurrentes à basculer sur Haiku.
 
 See `EXPANSIONS.md` for what to add as you grow.
 

@@ -105,7 +105,11 @@ Ask: *"How do you want to ship this?"* Options ordered by Boring-is-Beautiful de
 
 **Default selected = highest non-AI option that solves the problem.** User has to explicitly choose more autonomy.
 
-Once chosen, route to the appropriate scaffolder:
+**Before scaffolding from scratch, check the catalog.** The `agents/` catalog has 222 specialized agents. If one of them already covers the candidate task (e.g. `engineering-email-intelligence-engineer` for an email-parsing chore, `specialized-sales-data-extraction-agent` for Excel ingestion, `marketing-linkedin-content-creator` for weekly LinkedIn posts), suggest `/roster <besoin>` instead of building a new skill. The user gets leverage in seconds, not hours.
+
+If the recurring chore is broad enough that 3+ existing agents would help, suggest activating a **Squad** (`/squad <nom>`) — for instance, recurring content drudgery → `/squad creator`, recurring admin overhead → `/squad operator`.
+
+Only if no existing agent or squad covers the candidate, route to the appropriate scaffolder:
 - `skill-creator` if available globally (Anthropic-shipped)
 - `skill-builder` if user has it locally
 - Otherwise write a SKILL.md / agent file inline with frontmatter, location, and contents

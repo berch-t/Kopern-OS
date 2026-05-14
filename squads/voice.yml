@@ -1,0 +1,25 @@
+name: voice
+pitch: |
+  Pipelines audio, STT, transcription, intelligence email. Cœur technique
+  des projets audio-to-text / email-to-context.
+
+projets_phares:
+  - "{{Ton projet audio / STT}}"
+  - "{{Ton projet email intelligence}}"
+
+agents:
+  - engineering/engineering-voice-ai-integration-engineer.md
+  - engineering/engineering-email-intelligence-engineer.md
+  - engineering/engineering-ai-data-remediation-engineer.md
+  - engineering/engineering-ai-engineer.md
+  - specialized/specialized-mcp-builder.md
+  - specialized/agents-orchestrator.md
+
+runbooks_compatibles:
+  - runbook-mvp
+  - runbook-feature
+
+exemples_usage:
+  - "Pipeline transcription end-to-end : voice-ai-integration-engineer en lead"
+  - "Ajout d'un MCP audio custom : mcp-builder + voice-ai-integration-engineer"
+  - "Self-healing d'un pipeline ASR : ai-data-remediation-engineer"

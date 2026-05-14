@@ -1,0 +1,32 @@
+name: researcher
+pitch: |
+  Discovery, synthèse, recherche utilisateur et de marché. Pour comprendre
+  avant de coder.
+
+projets_phares:
+  - "{{Ton projet recherche / discovery}}"
+  - "{{Ton projet avec UX research}}"
+
+agents:
+  - product/product-trend-researcher.md
+  - product/product-feedback-synthesizer.md
+  - design/design-ux-researcher.md
+  - finance/finance-investment-researcher.md
+  - academic/academic-anthropologist.md
+  - academic/academic-historian.md
+  - academic/academic-narratologist.md
+  - academic/academic-psychologist.md
+  - specialized/specialized-workflow-architect.md
+  - specialized/specialized-model-qa.md
+  - specialized/zk-steward.md
+  - specialized/specialized-objective-decomposer.md
+  - specialized/agents-orchestrator.md
+
+runbooks_compatibles:
+  - runbook-mvp
+  - runbook-feature
+
+exemples_usage:
+  - "Discovery d'un nouveau produit : `/squad researcher` + workflow-architect en lead"
+  - "Synthèse de feedback : feedback-synthesizer + ux-researcher en parallèle"
+  - "Recherche de marché avant build : trend-researcher + investment-researcher"

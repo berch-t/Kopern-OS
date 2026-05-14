@@ -1,0 +1,29 @@
+name: operator
+pitch: |
+  Admin, finance, légal, ops solo-business. L'overhead invisible qui
+  bouffe une journée par semaine si tu ne l'attaques pas systématiquement.
+
+projets_phares:
+  - "Transversal (toutes activités)"
+
+agents:
+  - finance/finance-bookkeeper-controller.md
+  - finance/finance-fpa-analyst.md
+  - finance/finance-tax-strategist.md
+  - support/support-legal-compliance-checker.md
+  - support/support-finance-tracker.md
+  - support/support-infrastructure-maintainer.md
+  - support/support-executive-summary-generator.md
+  - specialized/specialized-french-consulting-market.md
+  - specialized/automation-governance-architect.md
+  - specialized/compliance-auditor.md
+  - specialized/specialized-chief-of-staff.md
+  - specialized/agents-orchestrator.md
+
+runbooks_compatibles:
+  - runbook-incident
+
+exemples_usage:
+  - "Clôture mensuelle de ta holding : bookkeeper-controller en lead"
+  - "Choix de structure juridique (portage vs SASU vs SAS) : french-consulting-market-navigator"
+  - "Audit conformité avant prod : compliance-auditor + legal-compliance-checker"

@@ -1,0 +1,38 @@
+name: builder
+pitch: |
+  Code un produit de zéro à la prod. Architecture solide, boucle Dev↔QA serrée,
+  sécurité d'office, docs au fil de l'eau. La squad par défaut pour démarrer
+  ou faire avancer un projet technique.
+
+projets_phares:
+  - "{{Ton projet code principal}}"
+  - "{{Ton projet code secondaire}}"
+
+agents:
+  - engineering/engineering-software-architect.md
+  - engineering/engineering-backend-architect.md
+  - engineering/engineering-frontend-developer.md
+  - engineering/engineering-rapid-prototyper.md
+  - engineering/engineering-ai-engineer.md
+  - engineering/engineering-database-optimizer.md
+  - engineering/engineering-code-reviewer.md
+  - engineering/engineering-security-engineer.md
+  - engineering/engineering-sre.md
+  - engineering/engineering-devops-automator.md
+  - engineering/engineering-git-workflow-master.md
+  - engineering/engineering-technical-writer.md
+  - engineering/engineering-minimal-change-engineer.md
+  - specialized/agents-orchestrator.md
+  - specialized/specialized-conductor-prime.md
+  - testing/testing-reality-checker.md
+
+runbooks_compatibles:
+  - runbook-mvp
+  - runbook-feature
+  - runbook-incident
+  - runbook-cinq-phases
+
+exemples_usage:
+  - "Nouveau MVP : `/squad builder` puis `/orchestrate runbook-mvp`"
+  - "Feature complexe : `/squad builder` puis `/orchestrate runbook-cinq-phases`"
+  - "Hardening avant lancement : `/squad builder` + security-engineer en lead"

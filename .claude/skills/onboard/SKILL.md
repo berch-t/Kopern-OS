@@ -65,17 +65,50 @@ Once the intake is complete, generate these files (or update if re-running). Bac
 4. **`references/voice.md`** — from Q2. Paste samples verbatim with a short header explaining their use ("Match this register when drafting; don't fake voice on external content without showing me first").
 5. **`connections.md`** — populate the 7-row table from Q4-Q7 answers. Each row gets `mechanism: not yet connected`, `auth: —`, `last checked: —`. The user wires connections on Day 2.
 6. **`CLAUDE.md`** — fill all `{{...}}` placeholders. Substitute the user's name, stated priority, voice register summary, and a brief connections summary.
+7. **`squads/*.yml`** — fill the `{{Ton projet X}}` placeholders. Parse Q1 (offer) + Q3 (90-day priorities) + Q7 (recurring chore) to extract 1-5 named projects. Present a **one-shot confirmation table**, not a new question :
+
+   ```
+   I see these projects in your answers. Mapping to squads :
+
+   | Project (inferred) | Suggested squad |
+   |---|---|
+   | <ProductName from Q1> | builder |
+   | <Priority X from Q3>  | shipper |
+   | <ChoreContext from Q7> | operator |
+
+   Type "ok" to apply, or "change <project> → <squad>" to adjust.
+   ```
+
+   Edit the YAMLs accordingly. Projects not mentioned go to `{{À définir}}` placeholders that stay editable.
+
+8. **Suggested default squad** — based on Q1's offer type :
+   - Tech product / SaaS → `builder`
+   - Coaching, education, content → `creator`
+   - Consulting / freelance / agency → `operator`
+   - Research / discovery-heavy → `researcher`
+
+   Add this as a final line in the closing screen : "Default squad : `<name>`. Activate later with `/squad <name>`."
+
+9. **Model routing preference** — based on Q4 (revenue) sensitivity, suggest a default tier in `CLAUDE.md` "Routage modèles" section. If revenue is mature/comfortable → keep Opus default. If pre-revenue / cost-sensitive → switch the section's "default starting model" line to Sonnet 4.6, with the comment "// inferred from /onboard, change anytime".
 
 ### Step 4: The closing screen
 
-Print one screen. Three lines max:
+Print one screen. Compact :
 
 ```
 ✓ Day 1 done. Your AIOS knows who you are, what you sell, what matters this quarter, and how you sound.
 
 Today: ask me — "what should I focus on this week?"
 Tomorrow: pick one tool from connections.md and wire it up (manual MCP install or write a small API script + save references/{tool}-api.md).
+Day 3: try /squad <default-squad> to activate your first agent bundle, then /orchestrate runbook-<mvp|contenu|feature> to run a real workflow.
 Day 7: run /audit to see your score.
+
+New skills you now have :
+  /squad         — activate a bundle of 5-15 specialized agents
+  /orchestrate   — run a multi-agent Conductor workflow (5 runbooks)
+  /roster        — search the 224-agent catalog for any need
+  /cost          — track your LLM spend per project / session
+  /snapshot      — save / restore session state across days
 ```
 
 When the user runs the closing prompt ("what should I focus on this week?"), respond using only the new context files. Hit:
@@ -87,20 +120,23 @@ The Default Shift question seeds the Mindset framework before `/level-up` formal
 
 ## Critical implementation rules
 
-1. **The 7-question cap is non-negotiable.** Don't add Q8 in conversation.
+1. **The 7-question cap is non-negotiable.** Don't add Q8 in conversation. Step 3 confirmations (squad mapping, default squad, model routing) are **inferred from Q1-Q7 and presented as a single confirmation table**, not as new questions.
 2. **Voice paste cannot be skipped.** If the user types samples mid-chat, refuse and tell them to paste from real writing.
-3. **One-shot scaffold.** After Step 2 ends, write Step 3 files in a single batch. No multi-turn confirmation. The user iterates by editing `aios-intake.md` and re-running.
-4. **Idempotent.** Re-running with an edited intake refreshes context files; backs up originals to `archives/intake-{ts}/`. Skips questions already answered unless the user wants to revise.
-5. **Closing screen is three lines.** Not a menu.
-6. **No extra skills generated.** Don't scaffold `/today`, `/draft`, `/connect`, etc. The kit ships 3 skills; the user authors more via `/level-up`.
+3. **One-shot scaffold.** After Step 2 ends, write Step 3 files in a single batch. The squad mapping confirmation (sub-step 7) is the only inline interaction allowed — and it has a default-yes (`ok` to apply).
+4. **Idempotent.** Re-running with an edited intake refreshes context files; backs up originals to `archives/intake-{ts}/`. Skips questions already answered unless the user wants to revise. When re-run, **don't overwrite squad YAMLs if the user already edited them** — only fill remaining `{{...}}` placeholders.
+5. **Closing screen is compact.** Lists the new skills so they're discoverable but doesn't pitch them.
+6. **No extra skills generated.** Don't scaffold `/today`, `/draft`, `/connect`, etc. The kit ships 8 skills (`/onboard`, `/audit`, `/level-up`, `/squad`, `/orchestrate`, `/roster`, `/cost`, `/snapshot`); the user authors more via `/level-up`.
 7. **Read-only on `references/operator-lens.md`.** It already ships in the kit. Don't overwrite.
 8. **No `.env` writes.** Don't ask for API keys on Day 1. Connections come Day 2.
+9. **Squad placeholders default to `{{À définir}}` when unsure.** Better leave editable than guess wrong.
 
 ## Verification (for the implementer)
 
 - Cold-test: clone a fresh kit, run `/onboard`, fill 7 answers, scaffold runs, ask the wow prompt, response cites Q1 + Q3 + Q7 specifically. Generic = fail.
 - Idempotency: re-run `/onboard` with one Q3 priority changed. Expected: only `context/priorities.md` and `CLAUDE.md`'s priority section update; backup created in `archives/intake-{ts}/`.
 - Voice rejection: type a sample mid-chat. Expected: skill refuses, asks for paste.
+- Squad scaffolding: after onboarding, `squads/builder.yml` (or relevant squad) has the user's named projects in `projets_phares:` instead of `{{Ton projet X}}` placeholders. Unmatched squads keep `{{À définir}}`.
+- Closing screen discoverability: a fresh user can name 3 of the 5 new skills after reading the closing once.
 
 > *Part of Kopern-OS. The Mindset language used in the closing screen comes from `references/operator-lens.md` — the Kopern-OS 3M Operator Lens.*
 > *© 2026 Thomas Berchet / Kopern AI. MIT licensed.*

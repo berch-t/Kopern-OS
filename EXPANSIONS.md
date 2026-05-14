@@ -31,7 +31,10 @@ The AIOS structure should look like a small, well-run business. Not a hoarder's 
 | `references/sops/` | You document how recurring processes run | Standard operating procedures the AIOS reads to run things consistently |
 | `references/{tool}-api.md` | You connect a new API or MCP and figure out how it works | Researched-once-saved-forever. `/audit` rewards this; future skills don't re-research. |
 | `scripts/` | You write Python or Bash to hit APIs not covered by MCPs | Most people's second connection is a script, not an MCP |
-| `.claude/agents/` | You need a sub-assistant for repeatable, multi-step research/writing | Agents run on cheaper models in their own context — keep your main session lean |
+| `.claude/agents/` | Auto-géré par `/squad` et `/roster`. Contient les agents actifs du squad courant (symlinks vers `agents/`). | Évite de polluer le contexte avec 222 agents. Un squad actif à la fois. |
+| `agents/` | **Déjà présent dans le kit.** Catalogue source des 222 agents spécialisés en 14 divisions. | Catalogue de référence — ne pas modifier les agents existants à moins de raison forte. Ajouter de nouveaux agents en suivant le format. |
+| `agents/orchestration/` | **Déjà présent.** Doctrine Kopern Conductor, playbooks (7 phases), runbooks (4 FR), handoff templates. | Orchestration multi-agents. Lancée par `/orchestrate <runbook>`. |
+| `squads/` | **Déjà présent.** 8 YAML définissant les bundles d'agents activables. | Active un scope cohérent (5-15 agents) via `/squad <nom>`. Ajouter un squad = nouveau YAML + update `squads/README.md`. |
 | Sub-OS folders (e.g. `youtube-os/`) | You have a vertical with its own data, sheets, transcripts, scripts | Isolation pattern — vertical workflows get their own scoped operating manual + skills |
 
 ---
